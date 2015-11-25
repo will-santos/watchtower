@@ -58,7 +58,7 @@ class CloudWatchLogHandler(handler_base_class):
         self.send_interval = send_interval
         self.max_batch_size = max_batch_size
         self.max_batch_count = max_batch_count
-        self.cwl_client = boto3.client("logs")
+        self.cwl_client = boto3.client("logs", region_name="us-east-1")
         self.queues, self.sequence_tokens = {}, {}
         self.threads = []
         self.shutting_down = False
